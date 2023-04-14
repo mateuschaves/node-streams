@@ -15,9 +15,17 @@ Este projeto é um exemplo de como ler um arquivo CSV utilizando streams em Node
 
 ## Uso
 
-Para iniciar o projeto, utilize o seguinte comando:
+Para iniciar o servidor, utilize o seguinte comando:
 
-    npm start
+```bash
+    npm run start
+```
+
+Para iniciar o script que lê o arquivo ```.csv```, utilize esse comando:
+
+```bash
+    npm run stream
+```
 
 O projeto utilizará o TypeScript para compilar o código para JavaScript antes de iniciar a aplicação.
 
