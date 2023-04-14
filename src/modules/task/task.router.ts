@@ -12,6 +12,7 @@ class TaskRouter {
         this.taskController.createTask = this.taskController.createTask.bind(this.taskController)
         this.taskController.listTasks = this.taskController.listTasks.bind(this.taskController)
         this.taskController.updateTask = this.taskController.updateTask.bind(this.taskController)
+        this.taskController.deleteTask = this.taskController.deleteTask.bind(this.taskController)
     }
 
     getRouter() {
@@ -21,6 +22,7 @@ class TaskRouter {
             .post('/tasks', validateTask, this.taskController.createTask)
             .get('/tasks', this.taskController.listTasks)
             .put('/tasks/:id', validateTask, this.taskController.updateTask)
+            .delete('/tasks/:id', this.taskController.deleteTask)
 
         return router
     }

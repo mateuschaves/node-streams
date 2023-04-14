@@ -21,6 +21,10 @@ class TaskService {
     updateTask(id: number, task: UpdateTaskDto): Task {
         return this.taskRepository.updateTask(id, task)
     }
+
+    deleteTask(id: number): void {
+        this.taskRepository.deleteTaskById(id)
+    }
 }
 
 export default TaskService

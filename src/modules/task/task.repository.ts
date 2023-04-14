@@ -35,6 +35,7 @@ class TaskRepository {
 
         const updatedTask = {
             ...this.tasks[taskIndex],
+            updated_at: new Date()
         }
 
         if (task.title) {
@@ -47,8 +48,6 @@ class TaskRepository {
 
         this.tasks[taskIndex] = updatedTask
 
-        console.log(this.tasks)
-
         return updatedTask
     }
 
@@ -60,6 +59,16 @@ class TaskRepository {
         }
 
         return task
+    }
+
+    deleteTaskById(id: number): void {
+        const taskIndex = this.tasks.findIndex(task => task.id === id)
+
+        if (taskIndex === -1) {
+            throw new Error('Tarefa não encontrada')
+        }
+
+        this.tasks.splice(taskIndex, 1)
     }
 }
 
