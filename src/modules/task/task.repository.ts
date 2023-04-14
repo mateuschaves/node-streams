@@ -1,3 +1,4 @@
+import UpdateTaskDto from './dto/update-task.dto'
 import Task from './task.entity'
 
 class TaskRepository {
@@ -23,6 +24,42 @@ class TaskRepository {
         }
 
         return tasks
+    }
+
+    updateTask(id: number, task: UpdateTaskDto): Task {
+        const taskIndex = this.tasks.findIndex(task => task.id === id)
+
+        if (taskIndex === -1) {
+            throw new Error('Tarefa não encontrada')
+        }
+
+        const updatedTask = {
+            ...this.tasks[taskIndex],
+        }
+
+        if (task.title) {
+            updatedTask.title = task.title
+        }
+
+        if (task.description) {
+            updatedTask.description = task.description
+        }
+
+        this.tasks[taskIndex] = updatedTask
+
+        console.log(this.tasks)
+
+        return updatedTask
+    }
+
+    getTaskById(id: number): Task {
+        const task = this.tasks.find(task => task.id === id)
+
+        if (!task) {
+            throw new Error('Tarefa não encontrada')
+        }
+
+        return task
     }
 }
 

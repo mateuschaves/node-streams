@@ -28,6 +28,24 @@ class TaskController {
 
         return response.status(200).json(tasks)
     }
+
+    async updateTask(request: Request, response: Response) {
+        try {
+            const { id } = request.params
+            const { title, description } = request.body
+
+            const taskDto = {
+                title,
+                description
+            }
+        
+            const updatedTask = this.taskService.updateTask(Number(id), taskDto)
+
+            return response.status(200).json(updatedTask)
+        } catch (error : any) {
+            return response.status(400).json({ message: error?.message })
+        }
+    }
 }
 
 export default TaskController

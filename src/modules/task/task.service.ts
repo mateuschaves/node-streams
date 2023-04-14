@@ -1,3 +1,4 @@
+import UpdateTaskDto from "./dto/update-task.dto";
 import Task from "./task.entity";
 import TaskRepository from "./task.repository";
 
@@ -15,6 +16,10 @@ class TaskService {
 
     listTasks(description?: string, title?: string): Task[] {
         return this.taskRepository. listTasks(description, title)
+    }
+
+    updateTask(id: number, task: UpdateTaskDto): Task {
+        return this.taskRepository.updateTask(id, task)
     }
 }
 
