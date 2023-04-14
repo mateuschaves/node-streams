@@ -1,6 +1,7 @@
 import { Router } from 'express'
 
 import TaskController from './task.controller'
+import validateTask from './task.middleware'
 
 class TaskRouter {
     private taskController: TaskController
@@ -16,7 +17,7 @@ class TaskRouter {
         const router = Router()
 
         router
-            .post('/tasks', this.taskController.createTask)
+            .post('/tasks', validateTask, this.taskController.createTask)
             .get('/tasks', this.taskController.listTasks)
 
         return router
