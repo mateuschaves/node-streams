@@ -13,8 +13,8 @@ class TaskService {
        return this.taskRepository.createTask(task)
     }
 
-    listTasks(): Task[] {
-        return this.taskRepository.tasks
+    listTasks(description?: string, title?: string): Task[] {
+        return this.taskRepository. listTasks(description, title)
     }
 }
 

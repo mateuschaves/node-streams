@@ -10,6 +10,20 @@ class TaskRepository {
         this.tasks.push(task)
         return task
     }
+
+    listTasks(description?: string, title?: string): Task[] {
+        let tasks = this.tasks
+
+        if (description) {
+            tasks = this.tasks.filter(task => String(task.description).toLowerCase().includes(String(description).toLowerCase()))
+        }
+
+        if (title) {
+            tasks = this.tasks.filter(task => String(task.title).toLowerCase().includes(String(title).toLowerCase()))
+        }
+
+        return tasks
+    }
 }
 
 export default TaskRepository

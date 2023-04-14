@@ -22,7 +22,9 @@ class TaskController {
     }
 
     async listTasks(request: Request, response: Response) {
-        const tasks = this.taskService.listTasks()
+        const { description, title } = request.query
+
+        const tasks = this.taskService.listTasks(description as string, title as string)
 
         return response.status(200).json(tasks)
     }
