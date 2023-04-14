@@ -10,8 +10,9 @@ Este projeto é um exemplo de como ler um arquivo CSV utilizando streams em Node
 
 ## Instalação
 
- 1. Clone o repositório: `git clone https://github.com/seu-usuario/nome-do-projeto.git`
+ 1. Clone o repositório: `git clone https://github.com/mateuschaves/node-streams.git`
  2. Instale as dependências: `npm install`
+ 3. Crie um arquivo `.env` usando o modelo de exemplo `.env.example`
 
 ## Uso
 
@@ -45,11 +46,6 @@ O fluxo de dados do projeto é o seguinte:
 
 O arquivo CSV deve ter o seguinte formato:
 
-arduino
-
-Copy code
-
-title,description,
 | title | description |
 |--|--|
 | Task 1 | Descrição da Task 1 |
