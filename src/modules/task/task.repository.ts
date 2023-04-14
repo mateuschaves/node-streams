@@ -70,6 +70,23 @@ class TaskRepository {
 
         this.tasks.splice(taskIndex, 1)
     }
+
+    completeTaskById(id: number): Task {
+        const taskIndex = this.tasks.findIndex(task => task.id === id)
+
+        if (taskIndex === -1) {
+            throw new Error('Tarefa não encontrada')
+        }
+
+        const updatedTask = {
+            ...this.tasks[taskIndex],
+            completed_at: new Date()
+        }
+
+        this.tasks[taskIndex] = updatedTask
+
+        return updatedTask
+    }
 }
 
 export default TaskRepository

@@ -58,6 +58,18 @@ class TaskController {
             return response.status(400).json({ message: error?.message })
         }
     }
+
+    async completeTask(request: Request, response: Response) {
+        try {
+            const { id } = request.params
+
+            const completedTask = this.taskService.completeTask(Number(id))
+
+            return response.status(200).json(completedTask)
+        } catch (error : any) {
+            return response.status(400).json({ message: error?.message })
+        }
+    }
 }
 
 export default TaskController

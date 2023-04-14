@@ -23,7 +23,11 @@ class TaskService {
     }
 
     deleteTask(id: number): void {
-        this.taskRepository.deleteTaskById(id)
+        return this.taskRepository.deleteTaskById(id)
+    }
+
+    completeTask(id: number): Task {
+        return this.taskRepository.completeTaskById(id)
     }
 }
 
